@@ -1,0 +1,16 @@
+class Myclass(object):
+    __instance = None
+
+    @staticmethod
+    def inst():
+        if Myclass.__instance == None:
+            Myclass.__instance = Myclass()
+        return Myclass.__instance
+
+    def __init__(self):
+        print("Constructor!")
+
+
+a = Myclass.inst()
+b = Myclass.inst()
+print(a is b)
