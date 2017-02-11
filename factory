@@ -1,0 +1,41 @@
+# gui_python_lab
+class Cart(object):
+    def create_cart1(self):
+        raise NotImplementedError()
+
+    def create_cart2(self):
+        raise NotImplementedError()
+
+
+class Piki(object):
+    def __init__(self, name):
+        self._name = name
+
+    def __str__(self):
+        return self._name
+
+
+class Chervi(object):
+    def __init__(self, name):
+        self._name = name
+
+    def __str__(self):
+        return self._name
+
+
+class F_piki(Cart):
+    def create_piki(self):
+        return Piki('Piki')
+
+    def create_cart2(self):
+        return Chervi('Chervi')
+
+
+class F_chervi(Cart):
+    def create_cart2(self):
+        return Piki('Piki')
+
+    def create_cart2(self):
+        return Chervi('Chervi')
+
+
