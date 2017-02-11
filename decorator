@@ -1,0 +1,16 @@
+class decorator(object):
+
+    def __init__(self, f):
+        print("decorator.__init__()")
+        f()
+
+    def __call__(self):
+        print("decorator.__call__()")
+
+@decorator
+def function():
+    print("function()")
+
+print("decorating function()")
+
+function()
