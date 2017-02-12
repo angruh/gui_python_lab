@@ -1,0 +1,35 @@
+def decorator(fn):
+    def decorated_fn(*args, **kwargs):
+        print('Decorated function')
+        fn(*args, **kwargs)
+        print()
+
+    return decorated_fn
+
+@decorator
+def hello():
+    print('Decor')
+
+
+hello()
+
+def result(type_):
+
+    def cast_decorator(function):
+
+        def decorated_function(*args, **kwargs):
+            res = function(*args, **kwargs)
+            return type_(res)
+
+        return decorated_function
+
+    return cast_decorator
+
+
+@result(float)
+def add(x, y):
+    return x + y
+
+print(add(2, 3))
+
+
