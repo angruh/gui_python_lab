@@ -1,41 +1,46 @@
-# gui_python_lab
-class Cart(object):
-    def create_cart1(self):
-        raise NotImplementedError()
+class Myclass(object):
+    def __init__(self, item_factory = None):
+        self.item_factory=item_factory
 
-    def create_cart2(self):
-        raise NotImplementedError()
+    def get(self):
+        item=self.item_factory.get_()
+        print( "model ",self.item_factory.model())
+        print ("name ",item.name())
+        print ("color ",self.item_factory.color())
 
-
-class Piki(object):
-    def __init__(self, name):
-        self._name = name
-
+class Firs(object):
+    def name(self):
+        return "first"
     def __str__(self):
-        return self._name
+        return "firs"
 
-
-class Chervi(object):
-    def __init__(self, name):
-        self._name = name
-
+class Second(object):
+    def name(self):
+        return "seconds"
     def __str__(self):
-        return self._name
+        return "seconds"
 
+class Factory1(object):
+    def get_(self):
+        return Firs()
+    def model(self):
+        return "001"
+    def color(self):
+        return "Black"
 
-class F_piki(Cart):
-    def create_piki(self):
-        return Piki('Piki')
+class Factory2(object):
+    def get_(self):
+        return Second()
+    def model(self):
+        return "010"
+    def color(self):
+        return "Red"
 
-    def create_cart2(self):
-        return Chervi('Chervi')
+a=Myclass(Factory1())
+a.get()
+print ("-"*30)
+b=Myclass(Factory2())
+b.get()
 
-
-class F_chervi(Cart):
-    def create_cart2(self):
-        return Piki('Piki')
-
-    def create_cart2(self):
-        return Chervi('Chervi')
 
 
