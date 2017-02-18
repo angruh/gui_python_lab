@@ -1,0 +1,21 @@
+import random
+class Card(object):
+    def __init__(self):
+        self.list = ['heart', 'diamond', 'club', 'spade']
+        self.cards = []
+        for card_num in range(0, 52):
+            r = str(card_num % 13)
+            if r == '0':
+                r = 'K'
+            if r == '1':
+                r = 'A'
+            if r == '12':
+                r = 'Q'
+            if r == '11':
+                r = 'J'
+            index = int((card_num / 13) % 13)
+            self.cards.append((r, self.list[index]))
+
+    def draw(self):
+        next = self.cards.pop(random.randint(0, len(self.cards) - 1))
+        return next
